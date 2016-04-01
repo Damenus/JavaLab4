@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?> 
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"  id="AnchorPane" prefHeight="200" prefWidth="380" fx:controller="javalab4.FXMLDocumentController">
+    <children>
+        <TableView fx:id="bookTableView">
+            <columns>
+                <TableColumn fx:id="titleColumn">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="titleColumn"/> 
+                    </cellValueFactory>
+                </TableColumn> 
+                <TableColumn fx:id="pageColumn"  >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pageColumn" /> 
+                    </cellValueFactory>
+                </TableColumn> 
+            </columns>
+        </TableView>
+       <Button layoutX="260.0" layoutY="5.0" mnemonicParsing="false" onAction="#loadBooksActions" prefHeight="25.0" prefWidth="85.0" text="Open" />
+       <TextField fx:id="titleField" layoutX="260.0" layoutY="35.0" prefWidth="100.0"  />  
+       <TextField fx:id="pagesField" layoutX="260.0" layoutY="60.0"  prefWidth="100.0" />  
+       <Button layoutX="260.0" layoutY="90.0" mnemonicParsing="false" onAction="#addBookActions" prefHeight="25.0" prefWidth="85.0" text="Add" />
+       <Button layoutX="260.0" layoutY="120.0" mnemonicParsing="false" onAction="#saveBooksAction" prefHeight="25.0" prefWidth="85.0" text="Save" />
+       <Button layoutX="260.0" layoutY="150.0" mnemonicParsing="false" onAction="#removeBookAction" prefHeight="25.0" prefWidth="85.0" text="Delete" />
+    </children>
+</AnchorPane>
