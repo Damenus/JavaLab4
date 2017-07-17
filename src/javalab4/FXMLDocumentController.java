@@ -31,15 +31,28 @@ import javax.xml.bind.Unmarshaller;
  */
 public class FXMLDocumentController implements Initializable {
     
-    ObservableList<Book> books = FXCollections.observableArrayList();
+    ObservableList<Shop> books = FXCollections.observableArrayList();
     
     @FXML
-    TableView<Book> bookTableView;
+    TableView<Shop> bookTableView;
+    
+      @FXML
+    TableView<Shop> bookTableView2;
     
     @FXML
-    TableColumn<Book,String> titleColumn;
+    TableColumn<Shop,String> titleColumn;
     @FXML
-    TableColumn<Book,Integer> pageColumn;
+    TableColumn<Shop,String> pageColumn;
+    
+    @FXML
+    TableColumn<Shop,String> nameColumn;
+    @FXML
+    TableColumn<Shop,Integer> iloscColumn;  
+    @FXML
+    TableColumn<Shop,Integer> priceNetto;
+    @FXML
+    TableColumn<Shop,Integer> priceBrutto;
+    
     @FXML
     TextField titleField;
     @FXML
@@ -49,35 +62,45 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
-        pageColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("pages"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Shop, String>("title"));
+        pageColumn.setCellValueFactory(new PropertyValueFactory<Shop, String>("address"));
         
         bookTableView.setItems(books);
         bookTableView.setEditable(true);
                      
         titleColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        titleColumn.setOnEditCommit(new EventHandler<CellEditEvent<Book, String>>() {
+        titleColumn.setOnEditCommit(new EventHandler<CellEditEvent<Shop, String>>() {
             @Override
-            public void handle(CellEditEvent<Book, String> event) {
-                Book book = event.getRowValue();
+            public void handle(CellEditEvent<Shop, String> event) {
+                Shop book = event.getRowValue();
                 String newTitle = event.getNewValue();
                 book.setTitle(newTitle);
             }
             
         });
         
-        
+        pageColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        pageColumn.setOnEditCommit(new EventHandler<CellEditEvent<Shop, String>>() {
+            @Override
+            public void handle(CellEditEvent<Shop, String> event) {
+                Shop book = event.getRowValue();
+                String newTitle = event.getNewValue();
+                book.setTitle(newTitle);
+            }
+            
+        });
+        /*
         IntegerStringConverter conv = new IntegerStringConverter();
         pageColumn.setCellFactory(TextFieldTableCell.forTableColumn(conv));
-        pageColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Book, Integer>>() {
+        pageColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Shop, Integer>>() {
             @Override
-            public void handle(TableColumn.CellEditEvent<Book, Integer> event) {
-                Book book = event.getRowValue();
+            public void handle(TableColumn.CellEditEvent<Shop, Integer> event) {
+                Shop book = event.getRowValue();
                 int newPages = event.getNewValue();
                 book.setPages(newPages);
             }
         });
-        
+        */
     }    
     
     @FXML
@@ -129,7 +152,7 @@ public class FXMLDocumentController implements Initializable {
     private void addBookActions(ActionEvent event) {
         String title = titleField.textProperty().getValue();
         String pages = pagesField.textProperty().getValue();
-        Book book = new Book(title, pages);
+        Shop book = new Shop(title, pages);
         books.add(book);
         titleField.clear();
         pagesField.clear();

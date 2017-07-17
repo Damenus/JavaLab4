@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?> 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1"  id="AnchorPane" prefHeight="200" prefWidth="380" fx:controller="javalab4.FXMLDocumentController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"  id="AnchorPane" prefHeight="200" prefWidth="450" fx:controller="javalab4.FXMLDocumentController">
     <children>
         <TableView fx:id="bookTableView">
             <columns>
@@ -19,6 +19,30 @@
                 <TableColumn fx:id="pageColumn"  >
                     <cellValueFactory>
                         <PropertyValueFactory property="pageColumn" /> 
+                    </cellValueFactory>
+                </TableColumn> 
+            </columns>
+        </TableView>
+        <TableView fx:id="bookTableView2" layoutY="380.0" >
+            <columns>
+                <TableColumn fx:id="nameColumn">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nameColumn"/> 
+                    </cellValueFactory>
+                </TableColumn> 
+                <TableColumn fx:id="iloscColumn"  >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="iloscColumn" /> 
+                    </cellValueFactory>
+                </TableColumn> 
+                <TableColumn fx:id="priceNetto"  >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="priceNetto" /> 
+                    </cellValueFactory>
+                </TableColumn> 
+                <TableColumn fx:id="priceBrutto"  >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="priceBrutto" /> 
                     </cellValueFactory>
                 </TableColumn> 
             </columns>

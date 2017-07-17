@@ -13,21 +13,22 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement//(name = "tower")        
 public class Tower {
     
-    @XmlElement(required = true, name = "book")
-    private Set<Book> books = new HashSet<>();
+    @XmlElement(required = true, name = "shop")
+    private Set<Shop> books = new HashSet<>();
+    private Set<Products> products = new HashSet<>();
 
     public Tower() {
         
     }
-    public Tower(Set<Book> book) {
+    public Tower(Set<Shop> book) {
         this.books = book;
     }
     
-    public Set<Book> getBook() {
+    public Set<Shop> getBook() {
         return books;
     }
 
-    public void setBooks(Set<Book> book) {
+    public void setBooks(Set<Shop> book) {
         this.books = book;
     }
     
